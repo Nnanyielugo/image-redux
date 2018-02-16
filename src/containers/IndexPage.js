@@ -187,36 +187,4 @@ IndexPage.propTypes = {
   sendToApi: PropTypes.func
 }
 
-const mapStateToProps = state => ({
-  status: state.status,
-  statusMsg1: state.statusMsg1,
-  statusMsg2: state.statusMsg2,
-  response: state.response,
-  showModal: state.showModal,
-  buttonText: state.buttonText,
-  modalText: state.modalText
-})
-
-export default connect(mapStateToProps, { receiveApiResponse })(IndexPage);
-
-
-
-
-
-
-
-/*const mapStateToProps = state =>{
-  return{
-      ctr: state.counter
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onIncrementCounte
-  }
-}
-
-
-export default connect()(ComponentPageName)
-*/
+export default connect(null, { receiveApiResponse })(IndexPage);

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
 import { connect } from 'react-redux';
-
 
 import '../result.css'
 import ResultDisplay from '../components/ResultDisplay';
