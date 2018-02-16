@@ -1,0 +1,13 @@
+.link{
+  color: #f3f3f3;
+}
+
+.panel-default{
+  margin-top: 5em;
+}
+
+@media screen and (max-width: 768px) {
+  .container{
+    background-color: rgba(1, 1, 255, 0.8);
+  }
+}

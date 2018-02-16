@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import _ from 'lodash';
-import './App.css'
+
 
 
 let timer = '';

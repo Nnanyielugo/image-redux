@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { receiveApiResponse } from '../actions/actions'
+import '../App.css'
 
 let timer = '';
 
@@ -133,11 +134,8 @@ class IndexPage extends Component {
   }
 
   render(){
-    let modalText = this.state.modalText;
-    let buttonText = this.state.buttonText;
-    let response = this.state.response;
-	  let {image1PreviewUrl} = this.state;
-    let {image2PreviewUrl} = this.state;
+    
+	  let {image1PreviewUrl, buttonText, response, image2PreviewUrl, style, handleImage1Change, handleImage2Change} = this.state;
 
     let image1Preview = this.state.statusMsg1;
     let image2Preview = this.state.statusMsg2;

@@ -3,6 +3,8 @@ import {Link} from 'react-router';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
+import '../result.css'
+
 class ResultPage extends Component {
 	render(){
 		const {api_response, passport_valid, passport_details} = this.props;
