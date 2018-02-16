@@ -6,6 +6,10 @@
   margin-top: 5em;
 }
 
+#no-pass{
+  color: red;
+}
+
 @media screen and (max-width: 768px) {
   .container{
     background-color: rgba(1, 1, 255, 0.8);

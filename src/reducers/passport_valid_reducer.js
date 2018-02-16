@@ -11,7 +11,8 @@ const initialState = {
   response: '',
   showModal: false,
   buttonText: 'Analyze',
-  modalText: ''
+	modalText: '',
+	none_available: ''
 }
 
 // Use Object.assign to return copy of state since rest operator throws error
@@ -36,7 +37,8 @@ function passport_valid_reducer (state = initialState, action)  {
 		case types.FAILED_VERIFICATION: {
 			return Object.assign({}, state, {
 				response : (<div className="success"><p id="no-pass"><i className="fa fa-times" id="no-pass" aria-hidden="true"></i>&nbsp;&nbsp;Verification failed: Passport is either fake or not clear</p></div>),
-				api_response: action.value
+				api_response: action.value,
+				none_available: (<span className="red">None Available</span>)
 			})
 		}
 
