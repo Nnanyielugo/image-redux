@@ -8,3 +8,5 @@ export const SET_ORIGINAL_TEXT = 'SET_ORIGINAL_TEXT';
 
 export const SET_INITIAL_STATE = 'SET_INITIAL_STATE'
 
+export const CLOSE_MODAL = 'CLOSE_MODAL'
+

@@ -5,7 +5,7 @@ import {Modal, Button} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { receiveApiResponse } from '../actions/actions'
+import { receiveApiResponse, closeModal } from '../actions/actions'
 import '../App.css'
 
 let timer = '';
@@ -32,7 +32,8 @@ class IndexPage extends Component {
     this.setOriginalText = this.setOriginalText.bind(this); 
     this.errorState = this.errorState.bind(this);
     this.updateState = this.updateState.bind(this);
-    this.formSubmitHandler = this.formSubmitHandler.bind(this)
+    this.formSubmitHandler = this.formSubmitHandler.bind(this);
+    this.close = this.close.bind(this);
   }
 
   componentWillMount(){
@@ -80,10 +81,15 @@ class IndexPage extends Component {
   });
   }
 
+  close(){
+    this.props.closeModal()
+    this.setOriginalText()
+  }
+
   setOriginalText(){
     this.setState({
       status: 'idle', 
-      statusMsg1: (<div><i className="fa fa-plus" aria-hidden="true"></i><p>Upload id card</p></div>), 
+      statusMsg1: (<div><i className="fa fa-plus" aria-hidden="true"></i><p>Upload passport photograph</p></div>), 
       statusMsg2: (<div><i className="fa fa-plus" aria-hidden="true"></i><p>Upload passport</p></div>),
       isLoading: true,
       response: (<div className="init"></div>),
@@ -151,7 +157,7 @@ class IndexPage extends Component {
       <div className="App">
         <div className="topbar"></div>
        
-        <div className='container'>
+        <div className='container container-blue'>
           <div className="row">
             <div className="col-sm-2 col-md-2 col-xs-2"></div>
             <div className="col-sm-4 col-md-4 col-xs-8 id">
@@ -177,6 +183,16 @@ class IndexPage extends Component {
           {response} 
         </div>
 
+
+        <Modal show={this.props.showModal} onHide={this.close} bsSize="small" aria-labelledby="contained-modal-title-sm" className="custom-modal" >
+          <Modal.Body className="modalBody" closeButton>
+            <br />
+            <h5 id="no-pass">There was an error processing your request!</h5>
+            <small id="no-pass">Perhaps you have a connectivity problem</small>
+          </Modal.Body>          
+          <Button className="modalButton" onClick={this.close}>OK</Button>
+          
+        </Modal>
       </div>
     );
 	}
@@ -187,4 +203,8 @@ IndexPage.propTypes = {
   sendToApi: PropTypes.func
 }
 
-export default connect(null, { receiveApiResponse })(IndexPage);
+const mapStateToProps = state => ({
+  showModal: state.showModal
+})
+
+export default connect(mapStateToProps, { receiveApiResponse, closeModal })(IndexPage);

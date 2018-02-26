@@ -21,6 +21,10 @@ export function errorState(){
   return {type: types.ERROR_STATE};
 }
 
+export function modalHandler() {
+  return {type: types.CLOSE_MODAL}
+}
+
 
 /**
  * Api call
@@ -37,7 +41,7 @@ export function sendToApi(data){
     return val
   })
   .catch((error) => {
-    error;
+    return error;
   });
 }
 
@@ -64,6 +68,12 @@ export function receiveApiResponse(data){
       console.log(error)
       dispatch(errorState());
     })
+  }
+}
+
+export function closeModal() {
+  return function(dispatch) {
+    dispatch(modalHandler())
   }
 }
 
